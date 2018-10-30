@@ -1,7 +1,7 @@
 <h1 class="logo">MEALBUDDY</h1>
 
 
-<button><%= link_to "Create new meal", new_meal_path %><br></button>
+<%= link_to "Create new meal", new_meal_path %><br>
 <p>
 <% @meals.each do |meal| %>
   <li>Made by <%= meal.user.email %></li>
