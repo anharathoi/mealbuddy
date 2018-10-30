@@ -12,5 +12,12 @@ class MealsController < ApplicationController
   end
 
   def new
+    @meal = Meal.new
   end
+
+  def create
+    @meal = Meal.create
+  end
+
+
 end

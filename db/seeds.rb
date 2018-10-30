@@ -8,7 +8,3 @@
 
 
 
-meals = Meal.create([
-    {title: "lasagne",
-    description: "luke's delicious hot lasagne"}
-])
