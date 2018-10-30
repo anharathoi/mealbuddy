@@ -1,8 +1,19 @@
-<h1>Meals#index</h1>
-<p>Find me in app/views/meals/index.html.erb</p>
+<h1 class="logo">MEALBUDDY</h1>
 
+
+<button><%= link_to "Create new meal", new_meal_path %><br></button>
 <p>
 <% @meals.each do |meal| %>
-<%= meal.title %>
+  <li>Made by <%= meal.user.email %></li>
+  <li>Item name: <%= meal.title %></li>
+  <li>Description: <%= meal.description %></li>
+  <li>Available from:<%= meal.available_from %></li>
+  <li>Available to:<%= meal.available_until %></li>
+  <li>Price:<%= meal.price %></li>
+  <%= link_to 'Show', meal_path(meal) %>
+  <hr>
 <% end %>
 </p>
+
+
+<%# <hr> %>

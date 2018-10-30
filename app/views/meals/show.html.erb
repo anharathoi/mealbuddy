@@ -1,2 +1,8 @@
-<h1>Meals#show</h1>
-<p>Find me in app/views/meals/show.html.erb</p>
+<h1> <%= @meal.title.upcase %></h1>
+
+
+<p> Item name: &nbsp<%= @meal.title.capitalize %> </p>
+<p> Description: &nbsp<%= @meal.description %> </p>
+
+<%= link_to 'Delete', meal_path(@meal),method: :delete %> | <%= link_to 'Edit', edit_meal_path(@meal) %> <br><br>
+
