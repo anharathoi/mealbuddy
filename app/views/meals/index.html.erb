@@ -2,6 +2,9 @@
 
 
 <%= link_to "Create new meal", new_meal_path %><br>
+  <% if user_signed_in? %>
+    <%= link_to "Account Settings", edit_user_registration_path %>
+    <% end %>
 <p>
 <% @meals.each do |meal| %>
   <li>Made by <%= meal.user.email %></li>
@@ -14,6 +17,7 @@
   <hr>
 <% end %>
 </p>
+
 
 
 <%# <hr> %>
