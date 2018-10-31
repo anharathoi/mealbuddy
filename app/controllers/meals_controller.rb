@@ -33,6 +33,12 @@ class MealsController < ApplicationController
     redirect_to(root_path)
   end
 
+  def usermeals
+    @meals = current_user.meals
+  end
+
+  
+
   private
   def meal_params
     params.require(:meal).permit(:title, :description, :price, :available_from, :available_until)
