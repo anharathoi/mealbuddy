@@ -17,7 +17,7 @@
   <li>Description: <%= meal.description %></li>
   <li>Available from:<%= meal.available_from %></li>
   <li>Available to:<%= meal.available_until %></li>
-  <li>Price:<%= meal.price %></li>
+  <li>Price:<%= number_to_currency(meal.price/100.0) %></li>
   <%= link_to 'Show', meal_path(meal) %>
   <hr>
 <% end %>

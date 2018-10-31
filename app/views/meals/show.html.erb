@@ -13,14 +13,15 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: <%= @meal.price %></span>
+    
+      <span>Amount: <%= number_to_currency(@meal.price/100.0) %></span>
     </label>
   </article>
 
 <%= hidden_field_tag(:meal_id, @meal.id) %>
 
 
-<script src="https://checkout.stripe.com/checkout.js"       class="stripe-button"
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
   data-description="<%= @meal.title %>"
   data-amount="<%= @meal.price %>"

@@ -42,6 +42,8 @@ class MealsController < ApplicationController
 
   private
   def meal_params
-    params.require(:meal).permit(:title, :description, :price, :available_from, :available_until, :image)
+    result = params.require(:meal).permit(:title, :description, :price, :available_from, :available_until, :image)
+    result[:price] = result[:price].to_f * 100.0
+    result
   end
 end

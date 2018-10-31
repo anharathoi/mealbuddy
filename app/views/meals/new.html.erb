@@ -20,7 +20,7 @@
   
   <p>
     <%= form.label :price %><br>
-     $<%= form.text_field :price %>
+    <%= form.text_field :price, value: number_with_precision((@meal.price||0), :precision => 2)%>
   </p>
 
   <p>
