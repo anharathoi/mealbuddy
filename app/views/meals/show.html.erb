@@ -3,8 +3,6 @@
 
 <p> Item name: &nbsp<%= @meal.title.capitalize %> </p>
 <p> Description: &nbsp<%= @meal.description %> </p>
-
-<%= link_to 'Delete', meal_path(@meal),method: :delete %> | <%= link_to 'Edit', edit_meal_path(@meal) %> <br><br>
-
+<%= image_tag @meal.image, width: '300' %><br>
 <%= link_to 'Back',root_path %>
 

@@ -23,6 +23,8 @@ class MealsController < ApplicationController
   end
 
   def create
+    puts meal_params.inspect
+    puts "!!!!!!!"
     @meal = current_user.meals.create(meal_params)
     redirect_to(root_path)
   end
@@ -30,7 +32,7 @@ class MealsController < ApplicationController
   def destroy
     @meal = Meal.find(params[:id])
     @meal.destroy
-    redirect_to(root_path)
+    redirect_to(meals_usermeals_path)
   end
 
   def usermeals
@@ -41,6 +43,6 @@ class MealsController < ApplicationController
 
   private
   def meal_params
-    params.require(:meal).permit(:title, :description, :price, :available_from, :available_until)
+    params.require(:meal).permit(:title, :description, :price, :available_from, :available_until, :image)
   end
 end
