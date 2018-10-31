@@ -1,16 +1,7 @@
-<h1 class="logo">MEALBUDDY</h1>
+<h2>These are the meals you have created</h2>
 
-<% if user_signed_in? %>
-  <%= link_to "Create new meal", new_meal_path %><br>
-  <%= link_to "Account Settings", edit_user_registration_path %>
-  <br>
-  <%= link_to "User Meals", meals_usermeals_path %>
-
-
-
-
-<% end %>
 <p>
+
 <% @meals.each do |meal| %>
   <li>Made by <%= meal.user.email %></li>
   <li>Item name: <%= meal.title %></li>
@@ -18,11 +9,17 @@
   <li>Available from:<%= meal.available_from %></li>
   <li>Available to:<%= meal.available_until %></li>
   <li>Price:<%= meal.price %></li>
-  <%= link_to 'Show', meal_path(meal) %>
+<%= link_to 'Delete', meal_path(meal),method: :delete %> | <%= link_to 'Edit', edit_meal_path(meal) %> 
+
+
   <hr>
 <% end %>
+
+
+
+<%= link_to 'Back',root_path %>
+
+
+
+
 </p>
-
-
-
-<%# <hr> %>
