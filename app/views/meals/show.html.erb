@@ -4,5 +4,29 @@
 <p> Item name: &nbsp<%= @meal.title.capitalize %> </p>
 <p> Description: &nbsp<%= @meal.description %> </p>
 <%= image_tag @meal.image, width: '300' %><br>
-<%= link_to 'Back',root_path %>
 
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount: <%= @meal.price %></span>
+    </label>
+  </article>
+
+<%= hidden_field_tag(:meal_id, @meal.id) %>
+
+
+<script src="https://checkout.stripe.com/checkout.js"       class="stripe-button"
+  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+  data-description="<%= @meal.title %>"
+  data-amount="<%= @meal.price %>"
+  data-currency="AUD"
+  data-locale="auto">
+</script>
+<% end %>
+
+<%= link_to 'Back',root_path %>

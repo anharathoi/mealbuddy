@@ -24,7 +24,6 @@ class MealsController < ApplicationController
 
   def create
     puts meal_params.inspect
-    puts "!!!!!!!"
     @meal = current_user.meals.create(meal_params)
     redirect_to(root_path)
   end
