@@ -1,0 +1,36 @@
+
+<%= form_with model: meal do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+
+  <div class="field">
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+  </div>
+  
+  <p>
+    <%= form.label :price %><br>
+    $ <%= form.text_field :price, value: number_with_precision((meal.price||0)/100.0, :precision => 2) %>
+  </p>
+
+  <p>
+    <%= form.label :available_from %><br>
+    <%= form.datetime_local_field :available_from %>
+  </p>
+
+  <p>
+    <%= form.label :available_until %><br>
+    <%= form.datetime_local_field :available_until %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

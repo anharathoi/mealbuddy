@@ -1,37 +1,6 @@
 <h1>Edit you Meals</h1>
 
-<%= form_with model: @meal do |form| %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
 
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
+<%= render 'form', meal: @meal %>
 
-    <div class="field">
-      <%= form.label :image %>
-      <%= form.file_field :image %>
-  </div>
- 
-  <p>
-    <%= form.label :price %><br>
-    <%= form.number_field :price %>
-  </p>
-
-  <p>
-    <%= form.label :available_from %><br>
-    <%= form.datetime_local_field :available_from %>
-  </p>
-
-  <p>
-    <%= form.label :available_until %><br>
-    <%= form.datetime_local_field :available_until %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+ <%= link_to "User Meals", meals_usermeals_path %>
