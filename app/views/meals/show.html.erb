@@ -5,29 +5,25 @@
 <p> Description: &nbsp<%= @meal.description %> </p>
 <%= image_tag @meal.image, width: '300' %><br>
 
-<%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-    
-      <span>Amount: <%= number_to_currency(@meal.price/100.0) %></span>
-    </label>
-  </article>
+<h1>You are ordering <%= @meal.title.capitalize %></h1>
 
-<%= hidden_field_tag(:meal_id, @meal.id) %>
+<h5>Price is <%= number_to_currency(@meal.price/100.0) %> 
+each
 
+<%= form_with model: @order do |form| %>
 
-<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-  data-description="<%= @meal.title %>"
-  data-amount="<%= @meal.price %>"
-  data-currency="AUD"
-  data-locale="auto">
-</script>
+  <p>
+    <%= form.label :order_quantity %><br>
+    <%= form.number_field :order_quantity %>
+  </p>
+ 
+  <%= hidden_field_tag(:meal_id, @meal.id) %>
+  <p>
+    <%= form.submit %>
+  </p>
+
 <% end %>
-<%= link_to 'Order',new_order_path %>
-<%= link_to 'Back',root_path %>
+
+
+
+

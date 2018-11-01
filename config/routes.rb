@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   root 'meals#index'
   get 'meals/usermeals', to: 'meals#usermeals'
-
+  post 'meals/:id', to: 'orders#create'
   devise_for :users
   resources :meals
   resources :charges
