@@ -2,7 +2,7 @@ class ChargesController < ApplicationController
 
 
     def create
-    @meal = Meal.find(params[:meal_id])
+    @order = Order.find(params[:order_id])
     
         customer = Stripe::Customer.create(
         :email => params[:stripeEmail],
@@ -11,8 +11,8 @@ class ChargesController < ApplicationController
     
       charge = Stripe::Charge.create(
         :customer    => customer.id,
-        :amount      => @meal.price,
-        :description => @meal.title,
+        :amount      => @order.price * @order.order_quantity,
+        :description => @order.title,
         :currency    => 'aud'
       )
     

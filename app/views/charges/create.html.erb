@@ -1,6 +1,6 @@
 <h2>Thanks, you paid 
 
-<%= number_to_currency(@meal.price/100.0) %>
-for <%= @meal.title %>
+<%= number_to_currency(@order.price/100.0 * @order.order_quantity) %>
+for <%= @order.title %>
 <strong>Bon apetite!</strong></h2>
 <%= link_to 'Back',root_path %>

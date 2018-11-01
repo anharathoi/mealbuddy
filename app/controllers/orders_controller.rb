@@ -1,15 +1,10 @@
 class OrdersController < ApplicationController
 
   def show
-    
-  end
-  def new
-    @meal = Meal.find(params[:id]) 
-    @order = Order.new
+    @order = Order.find(params[:id])
   end
 
   def create    
-    # @order = Order.create(order_params)
     meal = Meal.find(params[:meal_id]) 
     order = Order.create(order_params)
     order.user = current_user
@@ -19,7 +14,7 @@ class OrdersController < ApplicationController
     order.price = meal.price
     order.save
   # binding.pry 
-    redirect_to(root_path)
+    redirect_to(order_path(order))
 
   end
 

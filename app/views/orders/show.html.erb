@@ -1,0 +1,35 @@
+
+<h2>Order Confirmation</h2>
+
+
+  <li>Made by <%= @order.meal.user.email %></li>
+  <li>Item name: <%= @order.title %></li>
+
+
+
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+    
+      <span>Amount: <%= number_to_currency(@order.price/100.0 * @order.order_quantity) %></span>
+    </label>
+  </article>
+
+<%= hidden_field_tag(:order_id, @order.id) %>
+
+
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+  data-description="<%= @order.title %>"
+  data-amount="<%= @order.price * @order.order_quantity %>"
+  data-currency="AUD"
+  data-locale="auto">
+</script>
+<% end %>
+
+<%= link_to 'Back',root_path %>
