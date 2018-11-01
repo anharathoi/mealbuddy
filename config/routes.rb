@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   get 'meals/usermeals', to: 'meals#usermeals'
 
   devise_for :users
-
-  
   resources :meals
   resources :charges
+  get 'meals/:id/orders', to: 'orders#new', as: 'new_order'
+  resources :orders
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
