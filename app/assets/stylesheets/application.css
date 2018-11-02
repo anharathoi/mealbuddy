@@ -14,9 +14,11 @@
  *= require_self
  */
 
- body {
+ /* body {
    font-family: 'Roboto', sans-serif;
- }
+   margin: 0;
+   padding: 0;
+ } */
  li {
    list-style: none;
  }
@@ -28,8 +30,28 @@
     background: dodgerblue;
     }
 
-.logo {
+nav {
+  padding: 5px;
+  background: #f34d4d;
+  /* display: flex;
+  flex-direction: row;
+  align-content: space-around; */
+}
+nav h1 {
   font-family: 'Chewy';
-  font-size: 50px;
-  text-align: center;
+  font-size: 40px;
+  color: antiquewhite;
+  /* align-self: flex-start; */
+}
+
+nav a {
+  margin: 5px;
+  text-decoration: none;
+  color: antiquewhite;
+  /* align-self: flex-end; */
+}
+
+nav a:hover {
+  color: white;
+  font-weight: bold;
 }

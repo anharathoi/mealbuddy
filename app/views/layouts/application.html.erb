@@ -12,13 +12,16 @@
   </head>
 
   <body>
-  <% if user_signed_in? %>
-    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-  <% else %>
-    <%= link_to('Login', new_user_session_path)  %>  
-  <% end %>
-
+  <nav>
+    <%= link_to('Home', root_path)  %>  
+    <% if user_signed_in? %>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+    <% else %>
+      <%= link_to('Login/Sign Up', new_user_session_path)  %>  
+    <% end %>
+    <h1>MEALBUDDY</h1>
+  </nav>
+  
     <%= yield %>
-
   </body>
 </html>
