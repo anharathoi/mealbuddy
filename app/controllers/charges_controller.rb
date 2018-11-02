@@ -17,7 +17,8 @@ class ChargesController < ApplicationController
         :currency    => 'aud'
       )
     
-
+        @order.paid = true
+        @order.save
 
       
     rescue Stripe::CardError => e
