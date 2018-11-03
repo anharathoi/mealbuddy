@@ -19,6 +19,10 @@
     <%= form.label :price %><br>
     $ <%= form.text_field :price, value: number_with_precision((meal.price||0)/100.0, :precision => 2) %>
   </p>
+    <p>
+    <%= form.label :quantity %><br>
+    <%= form.text_field :quantity %>
+  </p>
 
   <p>
     <%= form.label :available_from %><br>

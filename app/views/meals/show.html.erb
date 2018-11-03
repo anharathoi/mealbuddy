@@ -10,11 +10,14 @@
 <h5>Price is <%= number_to_currency(@meal.price/100.0) %> 
 each
 
-<%= form_with model: @order do |form| %>
+<%= form_for(@order, url: orders_path) do |form| %>
 
+<!-- not let anyone select a quantity above available order_quantity -->
+
+  <p> Available quantity at the moment is: <%= @meal.quantity %></p>
   <p>
     <%= form.label :order_quantity %><br>
-    <%= form.number_field :order_quantity %>
+    <%= form.number_field :order_quantity, max: @meal.quantity %>
   </p>
  
   <%= hidden_field_tag(:meal_id, @meal.id) %>

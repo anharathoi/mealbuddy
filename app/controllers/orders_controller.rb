@@ -5,15 +5,17 @@ class OrdersController < ApplicationController
   end
 
   def create    
-    meal = Meal.find(params[:meal_id]) 
-    order = Order.create(order_params)
+    @meal = Meal.find(params[:meal_id]) 
+    order = Order.new(order_params)
     order.user = current_user
-    order.meal_id = meal.id
-    order.user_id = current_user.id.clone
-    order.title = meal.title
-    order.price = meal.price
+    order.meal_id = @meal.id
+    order.user_id = current_user.id
+    order.title = @meal.title
+    order.price = @meal.price
+    @meal.quantity -= order.order_quantity  
+    @meal.save
     order.save
-    redirect_to(order_path(order))
+    redirect_to order_path(order)
   end
 
   private
