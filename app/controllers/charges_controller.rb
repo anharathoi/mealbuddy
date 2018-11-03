@@ -16,9 +16,11 @@ class ChargesController < ApplicationController
         :description => @order.title,
         :currency    => 'aud'
       )
-    
+        @meal = @order.meal
         @order.paid = true
         @order.save
+        @meal.quantity -= @order.order_quantity  
+        @meal.save
 
       
     rescue Stripe::CardError => e

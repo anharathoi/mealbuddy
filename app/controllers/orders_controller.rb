@@ -12,8 +12,7 @@ class OrdersController < ApplicationController
     order.user_id = current_user.id
     order.title = @meal.title
     order.price = @meal.price
-    @meal.quantity -= order.order_quantity  
-    @meal.save
+
     order.save
     redirect_to order_path(order)
   end
