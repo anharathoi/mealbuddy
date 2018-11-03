@@ -8,13 +8,13 @@
 
 <% end %>
 
-<!--
-<%= form_with(url: meals_path, method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
+
+<%= form_tag(searchmeals_path, method: "get") do %>
+  <%= label_tag(:title, "Search for:") %>
+  <%= text_field_tag(:title) %>
   <%= submit_tag("Search") %>
 <% end %>
--->
+
 
 <p>
 <% @meals.each do |meal| %>

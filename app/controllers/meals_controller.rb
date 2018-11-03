@@ -39,6 +39,11 @@ class MealsController < ApplicationController
     @meals = current_user.meals
   end
 
+  def searchmeals
+    @meals = Meal.where('title ilike :title', title: "%#{params[:title]}%")
+    render :index    
+  end
+
   private
   def meal_params
     result = params.require(:meal).permit(:title, :description, :price, :available_from, :available_until, :quantity, :image)
