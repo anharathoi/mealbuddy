@@ -67,3 +67,6 @@ gem "aws-sdk-s3"
 gem "stripe", "~> 3.29"
 
 gem "pry-rails", "~> 0.3.6"
+gem "geocoder", "~> 1.5"
+
+gem "faker", "~> 1.9"
