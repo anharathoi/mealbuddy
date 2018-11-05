@@ -8,14 +8,14 @@
 addresses = [
   "Bennelong Point, Sydney, NSW, 2000",
   "48 Pirrama Rd, Pyrmont, NSW, 2009",
-   "121, King St, Melbourne, VIC, 3000",
-   "L4/180 Albert Rd, South Melbourne, VIC, 3205",
-   "2/117 Capel St, North Melbourne, VIC, 3051",
-   "1/187 Thomas St, Haymarket, NSW, 2000",
-   "15 Moore St, Canberra, ACT, 2601",
-   "1600 Amphitheatre Pkwy, Mountain View, CA, 94043, USA",
-   "161 Collins St, Melbourne, VIC, 3000",
-   "1 Hacker Way, Menlo Park, CA, 94025, USA"
+  "L4/180 Albert Rd, South Melbourne, VIC, 3205",
+  "2/117 Capel St, North Melbourne, VIC, 3051",
+  "1/187 Thomas St, Haymarket, NSW, 2000",
+  "15 Moore St, Canberra, ACT, 2601",
+  "1600 Amphitheatre Pkwy, Mountain View, CA, 94043, USA",
+  "161 Collins St, Melbourne, VIC, 3000",
+  "1 Hacker Way, Menlo Park, CA, 94025, USA",
+  "121 King St, Melbourne, VIC, 3000"
 ]
 5.times do 
   # address = Faker::Address.full_address.split(", ")
@@ -51,3 +51,5 @@ addresses = [
     }
   )
 end
+
+
