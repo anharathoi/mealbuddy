@@ -5,8 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+addresses = [
+  "Bennelong Point, Sydney, NSW, 2000",
+  "48 Pirrama Rd, Pyrmont, NSW, 2009",
+   "121, King St, Melbourne, VIC, 3000",
+   "L4/180 Albert Rd, South Melbourne, VIC, 3205",
+   "2/117 Capel St, North Melbourne, VIC, 3051",
+   "1/187 Thomas St, Haymarket, NSW, 2000",
+   "15 Moore St, Canberra, ACT, 2601",
+   "1600 Amphitheatre Pkwy, Mountain View, CA, 94043, USA",
+   "161 Collins St, Melbourne, VIC, 3000",
+   "1 Hacker Way, Menlo Park, CA, 94025, USA"
+]
 5.times do 
-  address = Faker::Address.full_address.split(", ")
+  # address = Faker::Address.full_address.split(", ")
+  address = addresses[rand(11)].split(", ")
   user = User.create!(
     {
       first_name: Faker::Name.first_name,
@@ -16,9 +29,9 @@
       password: "123456",
       street: address[0],
       city:address[1],
-      state:address[2][0..1],
-      postcode:address[2][3..-1],
-      country: "USA"
+      state:address[2],
+      postcode:address[3],
+      country: address[4].nil? ? "Australia" : address[4]
     }
   )
 
