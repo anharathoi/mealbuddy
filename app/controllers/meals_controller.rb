@@ -44,6 +44,16 @@ class MealsController < ApplicationController
     render :index    
   end
 
+  def searchbylocation
+    address = params[:address] + ", Australia"
+    users = User.near(address)
+    user_ids = users.map(&:id)
+    #only selects the ids, tried using pluck which did not work for some reason thus used map
+    @meals = Meal.where(user_id: user_ids)
+    render :index
+  end
+
+
   private
   def meal_params
     result = params.require(:meal).permit(:title, :description, :price, :available_from, :available_until, :quantity, :image)
