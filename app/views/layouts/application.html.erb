@@ -7,21 +7,45 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montez" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   </head>
 
   <body>
-  <nav>
-    <%= link_to('Home', root_path)  %>  
-    <% if user_signed_in? %>
-      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-    <% else %>
-      <%= link_to('Login/Sign Up', new_user_session_path)  %>  
-    <% end %>
-    <h1>MEALBUDDY</h1>
-  </nav>
+    <div class="logo">
+      <p >MealBuddy</p>
+    </div>
+    <div class="navbar-extension">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="nav-content">
+          <%= link_to 'Home', root_path,  class:"navbar-brand"  %> 
+          <% if user_signed_in? %>
+            <%= link_to "Account Settings", edit_user_registration_path, class:"navbar-brand" %>
+            <%= link_to "User Meals", meals_usermeals_path, class:"navbar-brand" %>   
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"navbar-brand" %> 
+            <%= form_tag(searchmeals_path, method: "get", class:"navbar-brand form-inline my-2 my-lg-0") do %>
+              <%= text_field_tag(:title, nil, placeholder:"Search by meal name", class:"form-control mr-sm-2") %>
+              <%= submit_tag("Search") %>
+            <% end %>
+
+            <%= form_tag(bylocation_path, method: "get", class:"navbar-brand form-inline my-2 my-lg-0") do %>
+              <%= text_field_tag(:address, nil, placeholder:"Search by location", class:"form-control mr-sm-2") %>
+              <%= submit_tag("Search") %>
+            <% end %>  
+          <% else %>
+            <%= link_to 'Login/Sign Up', new_user_session_path, class:"navbar-brand" %>  
+          <% end %>
+        </div>
+      </nav>
+      </div>
+  
   
     <%= yield %>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
 </html>

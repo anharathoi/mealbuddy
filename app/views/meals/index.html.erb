@@ -1,38 +1,25 @@
 
+<div class="index">
 
-<% if user_signed_in? %>
-  <%= link_to "Create new meal", new_meal_path %><br>
-  <%= link_to "Account Settings", edit_user_registration_path %>
-  <br>
-  <%= link_to "User Meals", meals_usermeals_path %>
-
-<% end %>
-
-
-<%= form_tag(searchmeals_path, method: "get") do %>
-  <%= label_tag(:title, "Search by meal:") %>
-  <%= text_field_tag(:title) %>
-  <%= submit_tag("Search") %>
-<% end %>
-
-<%= form_tag(bylocation_path, method: "get") do %>
-  <%= label_tag(:address, "Search by location:") %>
-  <%= text_field_tag(:address) %>
-  <%= submit_tag("Search") %>
-<% end %>
-
-
-<p>
 <% @meals.each do |meal| %>
-  <li>Made by <%= meal.user.email %></li>
-  <li>Item name: <%= meal.title %></li>
-  <li>Description: <%= meal.description %></li>
-  <li>Available from:<%= meal.available_from %></li>
-  <li>Available to:<%= meal.available_until %></li>
-  <li>Price:<%= number_to_currency(meal.price/100.0) %></li>
-  <%= link_to 'Show', meal_path(meal) %>
-  <hr>
+<% if meal.quantity > 0 %> <!-- So that food under 0 is not shown on index-->
+  <div class="index-content">
+    <div class="left">
+      <li><%= image_tag meal.image, width: '300' %><li>
+    </div>
+    <div class="right">
+      <li><h4><%= meal.title %></h4></li>
+      <li><strong>Made by <%= meal.user.email %></strong></li>
+      <li><%= meal.description %></li>
+      <li>Available from:<%= meal.available_from %></li>
+      <li>Available to:<%= meal.available_until %></li>
+      <li>Price:<%= number_to_currency(meal.price/100.0) %></li>
+      <%= link_to 'Buy Now', meal_path(meal), class:"btn btn-primary" %>
+    </div>
+    <% end %>
+    <hr>
+  </div>
 <% end %>
-</p>
+</div>
 
 <%# <hr> %>

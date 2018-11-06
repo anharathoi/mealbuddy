@@ -1,25 +1,27 @@
-<h2>These are the meals you have created</h2>
+<div class="user-meals-page">
+  <h5>These are the meals you have created</h5>
+  <p> <%= link_to "Create new meal", new_meal_path, class:"btn btn-primary" %> </p>
+  <% @meals.each do |meal| %>
+  <div class="user-meals">
+    <div class="left">
+      <li><%= image_tag meal.image, width: '300' %></li>
+    </div>
+    <div class="right">
+      <li>Made by <%= meal.user.email %></li>
+      <li>Item name: <%= meal.title %></li>
+      <li>Description: <%= meal.description %></li>
+      <li>Available from:<%= meal.available_from %></li>
+      <li>Available to:<%= meal.available_until %></li>
+      <li>Price:<%= number_to_currency(meal.price/100.0) %></li>
+      <%= link_to 'Delete', meal_path(meal),method: :delete %> &nbsp|&nbsp
+      <%= link_to 'Edit', edit_meal_path(meal) %>    
+      <hr>
+    </div>
+  </div>
+  <% end %>
 
-<p>
+</div>
 
-<% @meals.each do |meal| %>
-  <li>Made by <%= meal.user.email %></li>
-  <li>Item name: <%= meal.title %></li>
-  <li>Description: <%= meal.description %></li>
-  <li>Available from:<%= meal.available_from %></li>
-  <li>Available to:<%= meal.available_until %></li>
-  <li>Price:<%= number_to_currency(meal.price/100.0) %></li>
-<%= link_to 'Delete', meal_path(meal),method: :delete %> | <%= link_to 'Edit', edit_meal_path(meal) %> 
+  
 
-
-  <hr>
-<% end %>
-
-
-
-<%= link_to 'Back',root_path %>
-
-
-
-
-</p>
+  

@@ -1,3 +1,4 @@
+<div class="sign-up">
 <h2>Sign Up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -5,47 +6,47 @@
   
   <div class="field">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class:"col-md-6 form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class:"col-md-6 form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :phone %><br />
-    <%= f.text_field :phone, autofocus: true, autocomplete: "phone" %>
+    <%= f.text_field :phone, autofocus: true, autocomplete: "phone", class:"col-md-6 form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :street %><br />
-    <%= f.text_field :street, autofocus: true, autocomplete: "street" %>
+    <%= f.text_field :street, autofocus: true, autocomplete: "street", class:"col-md-6 form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :city %><br />
-    <%= f.text_field :city, autofocus: true, autocomplete: "city" %>
+    <%= f.text_field :city, autofocus: true, autocomplete: "city", class:"col-md-6 form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :state %><br />
-    <%= f.text_field :state, autofocus: true, autocomplete: "state" %>
+    <%= f.text_field :state, autofocus: true, autocomplete: "state", class:"col-md-6 form-control" %>
   </div> 
 
   <div class="field">
     <%= f.label :postcode %><br />
-    <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode" %>
+    <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode", class:"col-md-6 form-control" %>
   </div> 
 
   <div class="field">
     <%= f.label :country %><br />
-    <%= f.text_field :country, autofocus: true, autocomplete: "country" %>
+    <%= f.text_field :country, autofocus: true, autocomplete: "country", class:"col-md-6 form-control" %>
   </div>  
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-md-6 form-control" %>
   </div>
 
   <div class="field">
@@ -53,17 +54,18 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class:"col-md-6 form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"col-md-6 form-control" %>
   </div>
-
+  <br>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class:"btn btn-primary" %>
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+
+</div>

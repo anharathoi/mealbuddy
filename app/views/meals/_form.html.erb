@@ -1,40 +1,41 @@
-
+<div class="meals-form">
 <%= form_with model: meal do |form| %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
-
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, class:"col-md-6 form-control"  %>
+  </div>
 
   <div class="field">
-      <%= form.label :image %>
-      <%= form.file_field :image %>
+    <%= form.label :description %>
+    <%= form.text_area :description, class:"col-md-6 form-control"  %>
+  </div>
+
+  <div class="field">
+      <%= form.label :image %><br>
+      <%= form.file_field :image%>
   </div>
   
-  <p>
-    <%= form.label :price %><br>
-    $ <%= form.text_field :price, value: number_with_precision((meal.price||0)/100.0, :precision => 2) %>
-  </p>
-    <p>
-    <%= form.label :quantity %><br>
-    <%= form.text_field :quantity %>
-  </p>
+  <div class="field">
+    <%= form.label :price %>
+    $ <%= form.text_field :price, value: number_with_precision((meal.price||0)/100.0, :precision => 2), class:"col-md-6 form-control"  %>
+  </div>
+    <div class="field">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity, class:"col-md-6 form-control"  %>
+  </div>
 
-  <p>
-    <%= form.label :available_from %><br>
-    <%= form.datetime_local_field :available_from %>
-  </p>
+  <div class="field">
+    <%= form.label :available_from %>
+    <%= form.datetime_local_field :available_from , class:"col-md-6 form-control" %>
+  </div>
 
-  <p>
-    <%= form.label :available_until %><br>
-    <%= form.datetime_local_field :available_until %>
-  </p>
+  <div class="field">
+    <%= form.label :available_until %>
+    <%= form.datetime_local_field :available_until, class:"col-md-6 form-control"  %>
+  </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
+  <div class="actions">
+    <%= form.submit%>
+  </div>
 <% end %>
+</div>

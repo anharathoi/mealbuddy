@@ -1,32 +1,36 @@
-<h1> <%= @meal.title.upcase %></h1>
+<div class="show-page">
+  <h2> <%= @meal.title.capitalize%></h2>
 
+  <p><%= @meal.description %> </p>
 
-<p> Item name: &nbsp<%= @meal.title.capitalize %> </p>
-<p> Description: &nbsp<%= @meal.description %> </p>
+  <%= image_tag @meal.image, width: '250' %><br>
 
-<%= image_tag @meal.image, width: '300' %><br>
+  <h5>You are ordering <%= @meal.title.capitalize %></h5>
 
-<h1>You are ordering <%= @meal.title.capitalize %></h1>
+  <h5>Price is <%= number_to_currency(@meal.price/100.0) %> 
+  each</h5>
+  <p> Pick up location: <%= @meal.user.address %> </p>
+  <% if user_signed_in? %>
+    <%= form_for(@order, url: orders_path) do |form| %>
 
-<h5>Price is <%= number_to_currency(@meal.price/100.0) %> 
-each
+    <!-- not let anyone select a quantity above available order_quantity -->
 
-<%= form_for(@order, url: orders_path) do |form| %>
-
-<!-- not let anyone select a quantity above available order_quantity -->
-
-  <p> Available quantity at the moment is: <%= @meal.quantity %></p>
-  <p>
-    <%= form.label :order_quantity %><br>
-    <%= form.number_field :order_quantity, max: @meal.quantity %>
-  </p>
- 
-  <%= hidden_field_tag(:meal_id, @meal.id) %>
-  <p>
-    <%= form.submit %>
-  </p>
-
-<% end %>
+      <p> Available quantity at the moment is: <%= @meal.quantity %></p>
+      <p>
+        <%= form.label :order_quantity %><br>
+        <%= form.number_field :order_quantity, max: @meal.quantity %>
+      </p>
+    
+      <%= hidden_field_tag(:meal_id, @meal.id) %>
+      <p>
+        <%= form.submit %>
+      </p>
+    <% end %>
+       <% else %>
+    <h3>Please <%= link_to 'Login/Sign Up', new_user_session_path %> to order</h3> 
+    
+  <% end %>
+</div>
 
 
 
