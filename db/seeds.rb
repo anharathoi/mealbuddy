@@ -39,7 +39,7 @@ addresses = [
     {
       title: Faker::Food.dish,
       description: Faker::Food.description,
-      price: (rand(25).to_f * 100.0),
+      price: (rand(1..25).to_f * 100.0),
       quantity: Faker::Number.between(1, 100)
     }
   )
