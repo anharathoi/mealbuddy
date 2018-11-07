@@ -6,67 +6,14 @@
 
 ---
 
-<p> The project documentation been compiled in this README.md  as well as the responses to the submission deliverables.</p>
+The project documentation been compiled in this README.md  as well as the responses to the submission deliverables.
 
-<p> All files linked by this README.md have been included in a folder named doc as part of the submission.</p>
+All files linked by this README.md have been included in a folder named [docs](docs/) as part of the submission.
 
-[All resources included in this folder must be in either png, jpeg, pdf, or markdown format]
-[need to add mealbuddies link]
-[need to add screenshots]
-[need to add db schema design]
+Responses to all assessment criteria are below. This includes section 2.2 "Short Answer Questions"
+and section 5 "Deliverables".
 
 ---
->   A link (URL) to your published App
-    
-[MealBuddies](https://LinkToHerokuDeployVersion)
-
----
->   A link to your GitHub repository
-
-[Anhar's GitHub Repo](https://github.com/anharathoi/mealbuddy)
-
-[Luke's GitHub Repo](https://github.com/lukestainlay/mealbuddy)
-
----
->   Description of your project
- 
-This web application is a collaboration between Anhar Athoi and Luke Stainlay that connects people that are unable to cook with meals made by other people who have the skils, time and passion to cook.
-
- ---
->   Problem definition / purpose
- 
-
-
-
-
->   Functionality / features
- 
->   Screenshots
- 
->   Tech stack (e.g. html, css, deployment platform, etc)
- 
->   Instructions on how to setup, configure and use your App.
- 
->   Design documentation including,
- 
->   Design process
- 
->   User stories
- 
->   A workflow diagram of the user journey/s.
- 
->   Wireframes
- 
->   Database Entity Relationship Diagrams
- 
->   Details of planning process including,
- 
->   Project plan & timeline
- 
->   Screenshots of Trello board(s)
- 
->   Answers to the Short Answer questions (Section 2.2)
-
 
 ##  2.2 Requirements - Short Answer Questions
 
@@ -79,7 +26,7 @@ The need for fresh, wholesome and affordable meals that can are convenient, deli
  ### **Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?**
 
 
-Many people to not have the time to spend regularly preparing and cooking meals, yet the desire to eat tasty, healthy, and affordable meals is ever increasing. 
+Many people do not have the time to spend regularly preparing and cooking meals, yet the desire to eat tasty, healthy, and affordable meals is ever increasing. 
 
 There also exists a growing number of experienced cooks that are opting out of the heavy demands of the hospitality industry, yet have time, skill, knowledge and passion for cooking. 
 
@@ -177,20 +124,26 @@ ___
 ### **Provide your database schema design.**
 
 
-[need db schema]
+[MealBuddies schema design (jpg)](docs/meal-buddies-db-design.jpg)
 
 ---
-### *Provide User stories for your App.*
+### **Provide User stories for your App.**
 
-[need user stories]
+- "As a user who cooks I want to be able to sell meals"
+- "As a user who eats I want to be able to buy meals"
+- "As a user who eats I want to to be able to see what is available nearby"
+- "As a user who cooks I want to be able to see the meals that I have on offer and edit them"
+- "As a user I want to be able to edit my account details"
 
 ---
-### *Provide Wireframes for your App.*
+### **Provide Wireframes for your App.**
 
-[need wireframes]
+[MealBuddies Wireframe (jpg)](docs/meal-buddies-wireframe.jpg)
+
+[MealBuddies Wireframe (pdf)](docs/meal-buddies-wireframe.pdf)
 
 ---
-### *Describe the way tasks are allocated and tracked in your project.*
+### **Describe the way tasks are allocated and tracked in your project.**
 
 Trello is used to allocate the main tasks and a running "to do" list is kept on Google Docs for simpler tasks.
 
@@ -206,12 +159,14 @@ At the end of each day we discuss what we achieved and where we want to start to
 As a team of two it naturally suited the use of agile methodology. Each morning we would discuss where the project is up to and what needed to be achieved in the next 24hrs. Any issues or foreseeable bottlenecks would be raised and discussed.
 
 ---
-### *Provide an overview and description of your Source control process.*
+### **Provide an overview and description of your source control process.**
 
-Using git...
+Using git we were able to create branches to work on specific aspects of the app. Once completed we could commit and merge into the master and then push to the forked repository. We then created a pull request to the original repository which was then merged.
+
+When required we pulled the updated version from the origin or upstream.
 
 ---
-### **Provide an overview and description of your Testing process.**
+### **Provide an overview and description of your testing process.**
 
 Our testing process was continuous as each task was completed. Our app was deployed at least each day of the project to make it easier to identify any issues.
 
@@ -222,16 +177,178 @@ When we were close to completion we also had other students use the app to creat
 ---
 ### **Discuss and analyse requirements related to information system security.**
 
+Security requirements of information systems are often reffered to as the information security triad: Confidentiality, Integrity, and Availability (CIA)
+
+Confidentiality involves protecting information by restricting access to only those who are allowed to see it. Conversely, it is also important to deny access to anyone else who is not auhorised to see it.
+
+Integrity is the certainty that the data being accessed has not been modified or manipulated. The information needs to be reliable and consistent as intended. If it becomes compromised the information can become untrustworthy and useless. This may be through intentional and malicious activity or accidental by a user with access to the information.
+
+Information availability refers to the timely access of the information. It is not usually the case that all users require access to the informtion all the time. By allowing the information to be available when required it can decrease the risk exposure of that information being misused.
+
 
 ---
 ### **Discuss methods you will use to protect information and data.**
 
 
+Users of the app are restricted by a private method in the `MealsController` so the only data that can be submitted is controlled by the app:
+  
+```Ruby
+private
+  def meal_params
+    result = params.require(:meal).permit(:title, :description, :price, :available_from, :available_until, :quantity, :image)
+    result[:price] = result[:price].to_f * 100.0
+    result
+  end
+```
+
+Additionally, users are restricted by the `MealController` in that they can only update the meals where they were the `current_user` at the time they were created
+- The database is held securely on the Heroku server and the key does not form part of the deployed code.
+
 ---
-### **Research what your legal obligations are in relation to handling user data.**()
+### **Research what your legal obligations are in relation to handling user data.**
+
+If our annual turnover exceeds $3 million then we must conform to the Privact Act 1988. At this time we would be required to protect personal information from theft, misuse, interference, loss, unauthorised access, modification and disclosure.
+
+This involves adoption of the 13 Australian Privacy Principles:
+
+
+1 — Open and transparent management of personal information
+Ensures that APP entities manage personal information in an open and transparent way. This includes having a clearly expressed and up to date APP privacy policy.
+
+2 — Anonymity and pseudonymity
+Requires APP entities to give individuals the option of not identifying themselves, or of using a pseudonym. Limited exceptions apply.
+
+3 — Collection of solicited personal information
+Outlines when an APP entity can collect personal information that is solicited. It applies higher standards to the collection of ‘sensitive’ information.
+
+4 — Dealing with unsolicited personal information
+Outlines how APP entities must deal with unsolicited personal information.
+
+5 — Notification of the collection of personal information
+Outlines when and in what circumstances an APP entity that collects personal information must notify an individual of certain matters.
+
+6 — Use or disclosure of personal information
+Outlines the circumstances in which an APP entity may use or disclose personal information that it holds.
+
+7 — Direct marketing
+An organisation may only use or disclose personal information for direct marketing purposes if certain conditions are met.
+
+8 — Cross-border disclosure of personal information
+Outlines the steps an APP entity must take to protect personal information before it is disclosed overseas.
+
+9 — Adoption, use or disclosure of government related identifiers
+Outlines the limited circumstances when an organisation may adopt a government related identifier of an individual as its own identifier, or use or disclose a government related identifier of an individual.
+
+10 — Quality of personal information
+An APP entity must take reasonable steps to ensure the personal information it collects is accurate, up to date and complete. An entity must also take reasonable steps to ensure the personal information it uses or discloses is accurate, up to date, complete and relevant, having regard to the purpose of the use or disclosure.
+
+11 — Security of personal information
+An APP entity must take reasonable steps to protect personal information it holds from misuse, interference and loss, and from unauthorised access, modification or disclosure. An entity has obligations to destroy or de-identify personal information in certain circumstances.
+
+12 — Access to personal information
+Outlines an APP entity’s obligations when an individual requests to be given access to personal information held about them by the entity. This includes a requirement to provide access unless a specific exception applies.
+
+13 — Correction of personal information
+Outlines an APP entity’s obligations in relation to correcting the personal information it holds about individuals.
+
+
+---
+---
+
+##  5. Deliverables
+
+
+>   A link (URL) to your published App
+    
+[MealBuddies](https://young-depths-91758.herokuapp.com/)
+
+---
+>   A link to your GitHub repository
+
+[Anhar's GitHub Repo](https://github.com/anharathoi/mealbuddy)
+
+[Luke's GitHub Repo](https://github.com/lukestainlay/mealbuddy)
+
+---
+>   Description of your project
+ 
+This market to market web application is a collaboration between Anhar Athoi and Luke Stainlay that connects people that are unable to cook with meals made by other people who have the skils, time and passion to cook.
+
+ ---
+>   Problem definition / purpose
+ 
+Many people do not have the time to spend regularly preparing and cooking meals, yet the desire to eat tasty, healthy, and affordable meals is ever increasing. 
+
+There also exists a growing number of experienced cooks that are opting out of the heavy demands of the hospitality industry, but still the have time, skill, knowledge and passion for cooking. 
+
+
+>   Functionality / features
+
+The app features meals that have been created by all users. This can easily be narrowed using the search features, either by location or by meal.
+
+Once a meal is seleceted, any signed up user can purchase the meal with credit card details. An email will be sent the users and the total number of meals now available is updated accordingly.
+
+A creator of a meal can upload an image of the meal and set their own price for each meal. Once created they can also update it.
+
+Only signed in users can create and puchase meals. Once signed in, users are able to update their personal deatails.
+
+
+>   Screenshots
+
+[INSERT SCREENSHOTS OF APP IN HERE]
+ 
+>   Tech stack (e.g. html, css, deployment platform, etc)
+
+The software used is Ruby, Ruby on Rails, CSS, HTML.
+
+The app is deployed on Heroku with images being stored on AWS.
+ 
+>   Instructions on how to setup, configure and use your App.
+ 
+The app launches from any web browser. No configuration is required. It has been designed so that it's intuitive to use.
+
+>   Design process
+ 
+The design
+
+>   User stories
+
+- "As a user who cooks I want to be able to sell meals"
+- "As a user who eats I want to be able to buy meals"
+- "As a user who eats I want to to be able to see what is available nearby"
+- "As a user who cooks I want to be able to see the meals that I have on offer and edit them"
+- "As a user I want to be able to edit my account details"
+ 
+>   A workflow diagram of the user journey/s.
+
+
+ 
+>   Wireframes
+
+[MealBuddies Wireframe (jpg)](docs/meal-buddies-wireframe.jpg)
+
+[MealBuddies Wireframe (pdf)](docs/meal-buddies-wireframe.pdf)
+
+ 
+>   Database Entity Relationship Diagrams
+
+[MealBuddies schema design (jpg)](docs/meal-buddies-db-design.jpg)
+
+
+>   Project plan & timeline
+
+The planning and timeframe for this project has been documented here ->
+[Planning and Project Schedule](docs/planning-and-project-schedule.pdf)
+ 
+>   Screenshots of Trello board(s)
+
+Daily Trello board screen shots were taken:
 
 
 
----
----
----
+ 
+>   Answers to the Short Answer questions (Section 2.2)
+
+[As above](#2.2)
+[fix this!]
+
