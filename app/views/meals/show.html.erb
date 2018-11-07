@@ -9,7 +9,7 @@
 
   <h5>Price is <%= number_to_currency(@meal.price/100.0) %> 
   each</h5>
-  <p> Pick up location: <%= @meal.user.address %> </p>
+  <li><strong>Pick up location:&nbsp</strong><a href="http://maps.google.com/maps?q=<%= @meal.user.address %>" target="_blank"><%= @meal.user.address %></a></li>
   <% if user_signed_in? %>
     <%= form_for(@order, url: orders_path) do |form| %>
 

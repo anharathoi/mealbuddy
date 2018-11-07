@@ -14,18 +14,18 @@ class ChargesController < ApplicationController
         :description => @order.title,
         :currency    => 'aud'
       )
-        @meal = @order.meal
-        @order.paid = true
-        @order.save
-        @meal.quantity -= @order.order_quantity  
-        @meal.save
+      @meal = @order.meal
+      @order.paid = true
+      @order.save
+      @meal.quantity -= @order.order_quantity  
+      @meal.save
+  
+      UserMailer.with(user: current_user).new_order.deliver_now
     
-        UserMailer.with(user: current_user).new_order.deliver_now
-      
-    rescue Stripe::CardError => e
-      flash[:error] = e.message
-      redirect_to new_charge_path
-    end
+      rescue Stripe::CardError => e
+        flash[:error] = e.message
+        redirect_to new_charge_path
+      end
 
 
 

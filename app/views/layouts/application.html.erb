@@ -4,7 +4,6 @@
     <title>Mealbuddy</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,7 +28,6 @@
               <%= text_field_tag(:title, nil, placeholder:"Search by meal name", class:"form-control mr-sm-2") %>
               <%= submit_tag("Search") %>
             <% end %>
-
             <%= form_tag(bylocation_path, method: "get", class:"navbar-brand form-inline my-2 my-lg-0") do %>
               <%= text_field_tag(:address, nil, placeholder:"Search by location", class:"form-control mr-sm-2") %>
               <%= submit_tag("Search") %>
@@ -39,9 +37,7 @@
           <% end %>
         </div>
       </nav>
-      </div>
-  
-  
+    </div>
     <%= yield %>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
