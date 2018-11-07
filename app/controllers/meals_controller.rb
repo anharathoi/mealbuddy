@@ -40,6 +40,7 @@ class MealsController < ApplicationController
   end
 
   def searchmeals
+  # SELECT * FROM meals WHERE title iLIKE '%las%'
     @meals = Meal.where('title ilike :title', title: "%#{params[:title]}%")
     render :index    
   end

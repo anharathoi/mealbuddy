@@ -13,13 +13,14 @@
       <li><%= meal.description %></li>
       <li>Available from:<%= meal.available_from %></li>
       <li>Available to:<%= meal.available_until %></li>
-      <li>Price:<%= number_to_currency(meal.price/100.0) %></li>
+      <li><strong>Price:</strong><%= number_to_currency(meal.price/100.0) %></li>
+      <li><strong>Pick up address:&nbsp</strong><a href="http://maps.google.com/maps?q=<%= meal.user.address %>"><%= meal.user.address %></a></li>
+
       <%= link_to 'Buy Now', meal_path(meal), class:"btn btn-primary" %>
     </div>
+
     <% end %>
-    <hr>
   </div>
 <% end %>
 </div>
 
-<%# <hr> %>
