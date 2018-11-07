@@ -1,9 +1,8 @@
-
 <div class="index">
   <% @meals.each do |meal| %>
     <% if (meal.quantity > 0 && meal.user.present?) %>
       <!-- So that food under 0 is not shown on index-->
-      <!-- So that only shows measl which has existing owner, i.e. user hasn't cancelled account-->
+      <!-- So that index page only shows meals that have existing owner, i.e. user hasn't cancelled account-->
       <div class="index-content">
         <div class="left">
           <li><%= image_tag meal.image, width: '300' %><li>

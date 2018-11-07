@@ -2,8 +2,6 @@ class MealsController < ApplicationController
 
   def index
     @meals = Meal.all
-    # UserMailer.with(user: current_user).new_registration.deliver_now
-
   end
 
   def show
@@ -42,17 +40,20 @@ class MealsController < ApplicationController
   end
 
   def searchmeals
-  # SELECT * FROM meals WHERE title iLIKE '%las%'
+  # SQL query: SELECT * FROM meals WHERE title iLIKE '%las%'
     @meals = Meal.where('title ilike :title', title: "%#{params[:title]}%")
     render :index    
   end
 
   def searchbylocation
     address = params[:address] + ", Australia"
-    users = User.near(address)
+    # creates the address string from the user input in search field
+    users = User.near(address) 
+    # selects users that are near the inputted location
     user_ids = users.map(&:id)
-    #only selects the ids, tried using pluck which did not work for some reason thus used map
+    # creates array of user ids in users(the local one to this method)
     @meals = Meal.where(user_id: user_ids)
+    # selects meals by the selected user_ids
     render :index
   end
 

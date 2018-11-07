@@ -3,6 +3,7 @@ class UserMailer < ApplicationMailer
     @user = params[:user]
     # binding.pry
     mail(to: @user.email, subject: "Welcome to Mealbuddy!!")
+    # method to send email on joining mealbuddy
   end
 
 
@@ -11,5 +12,6 @@ class UserMailer < ApplicationMailer
     @order = params[:order]
     # binding.pry
     mail(to: @user.email, subject: "Order Confirmation")
+    # method to send email on orders
   end
 end

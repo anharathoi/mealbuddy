@@ -13,6 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super
      UserMailer.with(user: current_user).new_registration.deliver_now
+     # send email on sign up
   end
 
   # GET /resource/edit

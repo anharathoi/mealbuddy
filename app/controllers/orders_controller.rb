@@ -12,12 +12,10 @@ class OrdersController < ApplicationController
     order.user_id = current_user.id
     order.title = @meal.title
     order.price = @meal.price
-
     order.save
     redirect_to order_path(order)
   end
  
-
   private
 
   def order_params
