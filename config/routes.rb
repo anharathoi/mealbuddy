@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'meals/searchmeals', to:'meals#searchmeals', as:'searchmeals'
   get 'meals/searchbylocation', to:'meals#searchbylocation', as:'bylocation'
   post 'meals/:id', to: 'orders#create'
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :meals
   resources :charges
   get 'meals/:id/orders', to: 'orders#new', as: 'new_order'

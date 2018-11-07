@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :meals
-  has_many :orders
+  has_many :orders, dependent: :nullify
 
   geocoded_by :address
   after_validation :geocode

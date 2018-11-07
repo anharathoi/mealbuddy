@@ -1,6 +1,4 @@
 class ChargesController < ApplicationController
-
-
     def create
 
       @order = Order.find(params[:order_id])
@@ -21,7 +19,8 @@ class ChargesController < ApplicationController
         @order.save
         @meal.quantity -= @order.order_quantity  
         @meal.save
-
+    
+        UserMailer.with(user: current_user).new_order.deliver_now
       
     rescue Stripe::CardError => e
       flash[:error] = e.message

@@ -2,6 +2,8 @@ class MealsController < ApplicationController
 
   def index
     @meals = Meal.all
+    # UserMailer.with(user: current_user).new_registration.deliver_now
+
   end
 
   def show

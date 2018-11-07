@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+     <style>
+        body {
+          text-align:center;
+        }
+        h1 {
+          color:dodgerblue;
+        }
+    </style>
+  </head>
+ 
+
+  <body>
+    <h1>Thank you for your order!</h1>
+    <p>
+      Your meal: <%= params[:user].orders.last.meal.title %> is ready!
+      Pick it up from: <%= params[:user].orders.last.meal.user.address %>
+    </p>
+  </body>
+</html>
