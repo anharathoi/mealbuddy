@@ -368,17 +368,9 @@ mealbuddy01@gmail.com
 
 mealbuddy02@gmail.com
 
-You can also use the following details tologin, although the order function will not work as that includes Mailgun as well:
+You can also use the following details to login and test all the other features:
 
-benny@wintheiser.com, password:123456
-
-clemenciahartmann@jacobson.net, password:123456
-
-sherita@carroll.co, password:123456
-
-tamoreilly@bosco.biz,  password:123456
-
-perlamayert@feest.org,  password:123456
+mealbuddy03@gmail.com, password:123456
 
 ---
 
