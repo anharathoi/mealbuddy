@@ -298,8 +298,16 @@ Back to:
 
 
 >   A link (URL) to your published App
-    
+
+Link to the web app on Heroku:    
 [MealBuddies](https://young-depths-91758.herokuapp.com/)
+
+To sign up, please use one of the following email addresses:
+mealbuddy01@gmail.com
+
+mealbuddy02@gmail.com
+
+To find out why [click here](#Configuration)
 
 ---
 >   A link to your GitHub repository
@@ -351,9 +359,26 @@ The software used is Ruby, Ruby on Rails, CSS, HTML.
 The app is deployed on Heroku with images being stored on AWS.
 
 ---
+#### Configuration
 >   Instructions on how to setup, configure and use your App.
- 
-The app launches from a web browser. No configuration is required. It has been designed so that it's intuitive to use so no instructions are required.
+
+The app launches from a web browser. No configuration is required. It has been designed so that it's intuitive to use so no instructions are required. The only limitation is that in the production version(in Heroku) the app sends error on sign up and upon payment if the email address has not been added in the verified email list of Mailgun. This is a limitation of the free Mailgun service and can be overcome with the paid version. For the purpose of testing the app the following email addresses can be used:
+
+mealbuddy01@gmail.com
+
+mealbuddy02@gmail.com
+
+You can also use the following details tologin, although the order function will not work as that includes Mailgun as well:
+
+benny@wintheiser.com, password:123456
+
+clemenciahartmann@jacobson.net, password:123456
+
+sherita@carroll.co, password:123456
+
+tamoreilly@bosco.biz,  password:123456
+
+perlamayert@feest.org,  password:123456
 
 ---
 
