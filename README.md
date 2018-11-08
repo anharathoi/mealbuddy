@@ -6,21 +6,28 @@
 
 ---
 
-The project documentation been compiled in this README.md  as well as the responses to the submission deliverables.
+The project documentation been compiled in this `README.md` as well as the responses to the submission deliverables.
 
-All files linked by this README.md have been included in a folder named [docs](docs/) as part of the submission.
-
-Responses to all assessment criteria are below. This includes section 2.2 "Short Answer Questions"
-and section 5 "Deliverables".
+All files linked by this `README.md` have been included in a folder named `docs` as part of the submission.
 
 ---
 
-##  2.2 Requirements - Short Answer Questions
+
+## Contents
+
+[Short Answer Questions](#short-answer-questions)
+
+[Deliverables](#deliverables)
+
+
+---
+
+##  Short Answer Questions
 
 
 ### **What is the need (i.e. challenge) that you will be addressing in your project?**
 
-The need for fresh, wholesome and affordable meals that can are convenient, delicious and easy without requiring any culinary skill.
+The need for fresh, wholesome, affordable meals that are convenient, delicious, and easy without requiring any culinary skill and can be made in only a few minutes.
 
 ---
  ### **Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?**
@@ -28,19 +35,20 @@ The need for fresh, wholesome and affordable meals that can are convenient, deli
 
 Many people do not have the time to spend regularly preparing and cooking meals, yet the desire to eat tasty, healthy, and affordable meals is ever increasing. 
 
-There also exists a growing number of experienced cooks that are opting out of the heavy demands of the hospitality industry, yet have time, skill, knowledge and passion for cooking. 
+There exists a growing number of experienced cooks that are opting out of the heavy demands of the hospitality industry, yet have the time, skill, knowledge and passion for cooking. 
 
 ---
 ### **Describe the project you will be conducting and how your App will address the needs.**
 
 MealBuddies provides the online platform that connects cooks with busy families, culinary novices, or anyone who enjoys affordable and wholesome food.
 
-**Case study 1:**
-Jane was a head chef at a busy innercity restaurant for 10 years until she found the late shifts and long hours became incompatible with her lifestyle. Now she runs a local cafe which opens for lunch only Wed-Sun. On Mondays and Tuesdays it is not profitable for the cafe to open due to low foot traffic in the area. To help cover costs, Jane utilises the Mondays and Tuesdays to make meals that she sells on MealBuddies.com.
+**Case study:**
 
-David is a busy father of three children under the age of 5 and works full-time. He doesn't enjoy cooking but has taken on the responsibilty of preparing meals at his home to ease the pressure on his wife and newborn son. He finds it challenging to prepare meals with limited time and often reverts to unhealthy take-away meals.
+**Jane** was a head chef at a busy innercity restaurant for 10 years until she found the late shifts and long hours became incompatible with her lifestyle. Now she runs a local cafe which opens for lunch Wed-Sun. On Mondays and Tuesdays it is not profitable for the cafe to open due to low turnover. To help cover costs, Jane utilises the Mondays and Tuesdays to make meals that she sells on MealBuddies.
 
-David discovered MealBuddies, saw the range of meals that Jane had to offer and placed an order of paleo lasagne and chickek with ginger, lemon and honey on couscous and picked it up that same afernoon. He put the dish chicken in the oven and 25 minutes later there was a nutricious meal for the whole family to enjoy.
+**David** is a busy father of three children under the age of 5 and works full-time. He doesn't enjoy cooking but has taken on the responsibilty of preparing meals at his home to ease the pressure on his wife and newborn son. He finds it challenging to prepare meals with limited time and often reverts to unhealthy take-away meals.
+
+David discovered MealBuddies and saw the range of meals that Jane had to offer. He placed an two orders; 1 x paleo lasagne, and 1 x chicken with ginger, lemon and honey on couscous. He picked them up that same afernoon on his way home from work. When he got home he put the dish chicken in the oven and 25 minutes later there was wholesome, delicious meal for the whole family to enjoy.
 
 
 
@@ -48,35 +56,39 @@ David discovered MealBuddies, saw the range of meals that Jane had to offer and 
 ### **Describe the network infrastructure the App may be based on.**
 
 
-The network infrustructure uses a WEBrick server and PostgreSQL database hosted on Heroku and AWS.
+The network infrustructure uses a PUMA server and PostgreSQL database hosted on Heroku and AWS.
 
 
 
 ---
 ### **Identify and describe the software to be used in your App.**
 
-The software used is Ruby, Ruby on Rails, CSS, HTML
+The software used is Ruby, Ruby on Rails, CSS and HTML.
 
 
 ---
 ### **Identify the database to be used in your App and provide a justification for your choice.**
 
 
-The database used in the app is PostgreSQL.
-
-The reason we chose that database is because it's open-source, we were already familiar with it, and it is recommended by Heroku. It also enforces datatypes (will throw an error if discrepancy), supports unique IDs as primary keys in rails, and can be programed inside of Ruby.
+The database used in the app is PostgreSQL. The reason we chose it is because:
+- it's open-source,
+-  we were already familiar with it,
+-  it is recommended by Heroku
+-  it enforces datatypes (will throw an error if discrepancy)
+-  it supports unique IDs as primary keys in railsm, and
+-  it can be programed inside of Ruby.
 
 ___
 ### **Identify and describe the production database setup (i.e. postgres instance).**
 
-The app uses three models in Rails that connect the app to the PostgreSQL database. These are meal, order and user. The controller in Rails directs the model to access the respective Postgres table of data. Have accessed the data, the controller then applies this to the view of the appropriate web page.
+The app uses three models in Rails that connect the app to the PostgreSQL database. These are meal, order and user. The controller in Rails directs the model to access the respective Postgres table of data. Having accessed the data, the controller then applies this to the view of the appropriate web page.
 
 ---
 ### **Describe the architecture of your App.**
 
 The app uses the MVC architecture pattern, whereby:
-- the model enables access and modification to the data held on the database;
-- the view is the output representaion of the data that has been accessed; and,
+- the model enables access and modification to the data held on the database,
+- the view is the output representaion of the data that has been accessed, and
 - the controller reacts to the user input and directs the model or view as appropriate.
 ---
 ### **Explain the different high-level components (abstractions) in your App.**
@@ -98,7 +110,7 @@ The app uses Heroku to deploy and store data. Images are stored in AWS.
 ___
 ### **Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).**
 
-The double sided market place in any environment shares similar characteristics. Most notable of these is the ability for a user to be a buyer and a seller. In terms of data structures a matrix of 'buyers' or 'sellers' is inefficient and problematic. Instead, an item or house (or in the case of MealBuddies, a meal)is linked to the user data via a foreign key.
+The two-sided market place in any environment shares similar characteristics. Most notable of these is the ability for a user to be a buyer and a seller. In terms of data structures a matrix of 'buyers' or 'sellers' is inefficient and problematic. Instead, an item or house (or in the case of MealBuddies, a meal) is linked to the user data via a foreign key.
 
 ---
 ### **Discuss the database relations to be implemented.**
@@ -108,7 +120,7 @@ Our database consists of three key tables; a Users table, a Meals table, and an 
 
 A user creates a meal and inputs the data associated with that meal (via the view) into the Meals table. The user that created this meal is linked using a foreign key.
 
-When a meal is ordered, data is added to the Orders table which is linked to the Users table and Meal table via foreign key.
+When a meal is ordered, data is added to the Orders table which is linked to the Users table and Meals table via foreign key.
 
 ___
 ### **Describe your project’s models in terms of the relationships (active record associations) they have with each other.**
@@ -124,7 +136,7 @@ ___
 ### **Provide your database schema design.**
 
 
-[MealBuddies schema design (jpg)](docs/meal-buddies-db-design.jpg)
+![MealBuddies schema design (jpg)](docs/meal-buddies-db-design.jpg)
 
 ---
 ### **Provide User stories for your App.**
@@ -138,9 +150,7 @@ ___
 ---
 ### **Provide Wireframes for your App.**
 
-[MealBuddies Wireframe (jpg)](docs/meal-buddies-wireframe.jpg)
-
-[MealBuddies Wireframe (pdf)](docs/meal-buddies-wireframe.pdf)
+![MealBuddies Wireframe (jpg)](docs/meal-buddies-wireframe.jpg)
 
 ---
 ### **Describe the way tasks are allocated and tracked in your project.**
@@ -152,6 +162,8 @@ Each time a task is completed Trello is updated and/or the item is marked off th
 At the start of each day we discuss where we are up to in the project and what we want to achieve for the day and for the next task.
 
 At the end of each day we discuss what we achieved and where we want to start tomorrow.
+
+Screen shots and other resources were shared in a Google drive.
 
 ---
 ### **Discuss how Agile methodology is being implemented in your project.**
@@ -179,18 +191,22 @@ When we were close to completion we also had other students use the app to creat
 
 Security requirements of information systems are often reffered to as the information security triad: Confidentiality, Integrity, and Availability (CIA)
 
-Confidentiality involves protecting information by restricting access to only those who are allowed to see it. Conversely, it is also important to deny access to anyone else who is not auhorised to see it.
+Confidentiality involves protecting information by restricting access to only those who are allowed to see it. Conversely, it also requires denying access to anyone who is not auhorised to see it.
 
 Integrity is the certainty that the data being accessed has not been modified or manipulated. The information needs to be reliable and consistent as intended. If it becomes compromised the information can become untrustworthy and useless. This may be through intentional and malicious activity or accidental by a user with access to the information.
 
-Information availability refers to the timely access of the information. It is not usually the case that all users require access to the informtion all the time. By allowing the information to be available when required it can decrease the risk exposure of that information being misused.
+Information availability refers to the timely access of the information. It is not usually the case that all users require access to the informtion all the time. By allowing the information to be available only when required it can decrease the risk exposure of that information being misused.
 
 
 ---
 ### **Discuss methods you will use to protect information and data.**
 
 
-Users of the app are restricted by a private method in the `MealsController` so the only data that can be submitted is controlled by the app:
+- The devise gem restricts access to create, update, and delete methods via the `application_controller` to only users that are signed in. 
+
+- Users are also restricted by the `MealController` in that they can only update the meals where they were the `current_user` at the time they were created. 
+  
+- Users of the app are further restricted by a private method in the `MealsController` so the only data that can be submitted is controlled by the app:
   
 ```Ruby
 private
@@ -201,8 +217,8 @@ private
   end
 ```
 
-Additionally, users are restricted by the `MealController` in that they can only update the meals where they were the `current_user` at the time they were created
-- The database is held securely on the Heroku server and the key does not form part of the deployed code.
+- Additionally, the database is held securely on the Heroku server and the key does not form part of the deployed code.
+
 
 ---
 ### **Research what your legal obligations are in relation to handling user data.**
@@ -212,50 +228,73 @@ If our annual turnover exceeds $3 million then we must conform to the Privact Ac
 This involves adoption of the 13 Australian Privacy Principles:
 
 
-1 — Open and transparent management of personal information
+**1 — Open and transparent management of personal information**
+
 Ensures that APP entities manage personal information in an open and transparent way. This includes having a clearly expressed and up to date APP privacy policy.
 
-2 — Anonymity and pseudonymity
+**2 — Anonymity and pseudonymity**
+
 Requires APP entities to give individuals the option of not identifying themselves, or of using a pseudonym. Limited exceptions apply.
 
-3 — Collection of solicited personal information
+**3 — Collection of solicited personal information**
+
 Outlines when an APP entity can collect personal information that is solicited. It applies higher standards to the collection of ‘sensitive’ information.
 
-4 — Dealing with unsolicited personal information
+**4 — Dealing with unsolicited personal information**
+
 Outlines how APP entities must deal with unsolicited personal information.
 
-5 — Notification of the collection of personal information
+**5 — Notification of the collection of personal information**
+
 Outlines when and in what circumstances an APP entity that collects personal information must notify an individual of certain matters.
 
-6 — Use or disclosure of personal information
+**6 — Use or disclosure of personal information**
+
 Outlines the circumstances in which an APP entity may use or disclose personal information that it holds.
 
-7 — Direct marketing
+**7 — Direct marketing**
+
 An organisation may only use or disclose personal information for direct marketing purposes if certain conditions are met.
 
-8 — Cross-border disclosure of personal information
+**8 — Cross-border disclosure of personal information**
+
 Outlines the steps an APP entity must take to protect personal information before it is disclosed overseas.
 
-9 — Adoption, use or disclosure of government related identifiers
+**9 — Adoption, use or disclosure of government related identifiers**
+
 Outlines the limited circumstances when an organisation may adopt a government related identifier of an individual as its own identifier, or use or disclose a government related identifier of an individual.
 
-10 — Quality of personal information
+**10 — Quality of personal information**
+
 An APP entity must take reasonable steps to ensure the personal information it collects is accurate, up to date and complete. An entity must also take reasonable steps to ensure the personal information it uses or discloses is accurate, up to date, complete and relevant, having regard to the purpose of the use or disclosure.
 
-11 — Security of personal information
+**11 — Security of personal information**
+
 An APP entity must take reasonable steps to protect personal information it holds from misuse, interference and loss, and from unauthorised access, modification or disclosure. An entity has obligations to destroy or de-identify personal information in certain circumstances.
 
-12 — Access to personal information
+**12 — Access to personal information**
+
 Outlines an APP entity’s obligations when an individual requests to be given access to personal information held about them by the entity. This includes a requirement to provide access unless a specific exception applies.
 
-13 — Correction of personal information
+**13 — Correction of personal information**
+
 Outlines an APP entity’s obligations in relation to correcting the personal information it holds about individuals.
 
 
 ---
 ---
+---
+Back to:
 
-##  5. Deliverables
+- [Top](#MealBuddies)
+- [Contents](#contents)
+- [Short Answer Questions](#short-answer-questions)
+
+---
+---
+---
+
+##  Deliverables
 
 
 >   A link (URL) to your published App
@@ -281,7 +320,7 @@ Many people do not have the time to spend regularly preparing and cooking meals,
 
 There also exists a growing number of experienced cooks that are opting out of the heavy demands of the hospitality industry, but still the have time, skill, knowledge and passion for cooking. 
 
-
+---
 >   Functionality / features
 
 The app features meals that have been created by all users. This can easily be narrowed using the search features, either by location or by meal.
@@ -290,26 +329,41 @@ Once a meal is seleceted, any signed up user can purchase the meal with credit c
 
 A creator of a meal can upload an image of the meal and set their own price for each meal. Once created they can also update it.
 
-Only signed in users can create and puchase meals. Once signed in, users are able to update their personal deatails.
+Only signed in users can create and puchase meals. Once signed in, users are able to update their personal details.
 
-
+---
 >   Screenshots
 
-[INSERT SCREENSHOTS OF APP IN HERE]
- 
+Screenshots of the app:
+
+![MealBuddies 1](docs/mealbuddies-1.png)
+![MealBuddies 2](docs/mealbuddies-2.png)
+![MealBuddies 3](docs/mealbuddies-3.png)
+![MealBuddies 4](docs/mealbuddies-4.png)
+
+
+
+---
 >   Tech stack (e.g. html, css, deployment platform, etc)
 
 The software used is Ruby, Ruby on Rails, CSS, HTML.
 
 The app is deployed on Heroku with images being stored on AWS.
- 
+
+---
 >   Instructions on how to setup, configure and use your App.
  
-The app launches from any web browser. No configuration is required. It has been designed so that it's intuitive to use.
+The app launches from a web browser. No configuration is required. It has been designed so that it's intuitive to use so no instructions are required.
+
+---
 
 >   Design process
  
-The design
+The design process began with clearly defining the objective of the app. This involved a brainstrom, creating user stories, discussion, and white boarding.
+
+We then mapped out the functionality of the app and translated this to a basic wireframe in figma. Once finalised we began coding.
+
+---
 
 >   User stories
 
@@ -319,36 +373,68 @@ The design
 - "As a user who cooks I want to be able to see the meals that I have on offer and edit them"
 - "As a user I want to be able to edit my account details"
  
->   A workflow diagram of the user journey/s.
-
-
+ ---
  
 >   Wireframes
 
-[MealBuddies Wireframe (jpg)](docs/meal-buddies-wireframe.jpg)
+![MealBuddies Wireframe (jpg)](docs/meal-buddies-wireframe.jpg)
 
-[MealBuddies Wireframe (pdf)](docs/meal-buddies-wireframe.pdf)
-
+---
  
 >   Database Entity Relationship Diagrams
 
-[MealBuddies schema design (jpg)](docs/meal-buddies-db-design.jpg)
+![MealBuddies schema design (jpg)](docs/meal-buddies-db-design.jpg)
 
+---
 
 >   Project plan & timeline
 
 The planning and timeframe for this project has been documented here ->
-[Planning and Project Schedule](docs/planning-and-project-schedule.pdf)
+[Planning and Project Schedule (pdf)](docs/planning-and-project-schedule.pdf)
  
+
+---
+
 >   Screenshots of Trello board(s)
 
 Daily Trello board screen shots were taken:
 
+![Trello 1](docs/trello-1.png)
+![Trello 2](docs/trello-2.png)
+![Trello 3](docs/trello-3.png)
+![Trello 4](docs/trello-4.png)
+![Trello 5](docs/trello-5.png)
+![Trello 6](docs/trello-6.png)
+![Trello 7](docs/trello-7.png)
+![Trello 8](docs/trello-8.png)
+![Trello 9](docs/trello-9.png)
+![Trello 10](docs/trello-10.png)
+![Trello 11](docs/trello-11.png)
 
 
- 
+---
+
 >   Answers to the Short Answer questions (Section 2.2)
 
-[As above](#2.2)
-[fix this!]
+[As above](#short-answer-questions)
 
+>   Evidence of Communication
+
+Outside of daily meetings and check-ins, slack was the main communication tool.
+
+![Slack 1](docs/slack-1.png)
+![Slack 2](docs/slack-2.png)
+
+
+
+
+---
+---
+---
+Back to:
+
+
+- [Top](#MealBuddies)
+- [Contents](#contents)
+- [Short Answer Questions](#short-answer-questions)
+- [Deliverables](#deliverables)
