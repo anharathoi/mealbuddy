@@ -12,9 +12,14 @@
           <li><strong>Made by <%= meal.user.email %></strong></li>
           <li><strong>Pick up address:&nbsp</strong><a href="http://maps.google.com/maps?q=<%= meal.user.address %>" target="_blank"><%= meal.user.address %></a></li>
           <li><%= meal.description %></li>
-          <li>Available from:<%= meal.available_from %></li>
-          <li>Available to:<%= meal.available_until %></li>
-          <li><strong>Price:</strong><%= number_to_currency(meal.price/100.0) %></li>
+          <% if meal.available_from.present? %>
+            <li>Available for pickup from:<%= meal.available_from.strftime(' %d.%m.%Y at %T') %></li>
+            <li>Available for pickup until:<%= meal.available_until.strftime(' %d.%m.%Y at %T') %></li>
+          <% else %>
+            <li>Available for pickup from:<%= meal.available_from %></li>
+            <li>Available for pickup until:<%= meal.available_until %></li>
+          <% end %>
+            <li><strong>Price:</strong><%= number_to_currency(meal.price/100.0) %></li>
           <%= link_to 'Buy Now', meal_path(meal), class:"btn btn-primary" %>
         </div><!-- /right -->
       </div>
